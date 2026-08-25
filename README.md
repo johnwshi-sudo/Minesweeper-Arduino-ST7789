@@ -45,7 +45,7 @@ While playing, the **player's joystick cursor position is constantly tracked, ou
 **A special screen is played depending on the player's win or lose, which calls revealAllMines() and colors their backgrounds either green or red using drawTile().** Additionally, it displays both game time and all-time fastest WIN time. **The general game time was done by calling multiple millis(), as well as a lastStatusUpdate variable, which only updates the game timer every 0.2 seconds,** rather than every call to millis(). **Multiple EEPROM memory addresses had to be declared to track all-time time for each difficulty.** All visuals had both delicate and tedious math to compute and scale-to-fit all board sizes, while also updating all "Draw" methods. Overall, this minesweeper deals with heavy indices logic from numerous traversals, simple arrays, recursion, method calls from other files, and other methods.
 
 ## Origin
-Before building the hardware version, I prototyped the core game logic in Java as a text-based version. See `Main java prototype` and `Board java prototype` — same underlying logic (recursive flood-fill, chording, flag-toggle).
+Before building the hardware version, I prototyped the core game logic in Java as a text-based version. See `main.java` and `board.java` — same underlying logic (recursive flood-fill, chording, flag-toggle).
 
 ## What I Learned / Challenges
 - Fitting two 20x20 boards in limited SRAM + RAM tracking showed me how RAM affects the upload and game speed, as well as to constantly think of memory allocation and efficiency for a program.
