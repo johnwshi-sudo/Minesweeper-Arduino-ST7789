@@ -258,14 +258,6 @@ bool Board::getGameStatus(){    //getter to check if player wins or loses
   return (win || lose);
 }
 
-int Board::getTilesRevealed(){    //getter for total tiles revealed (used to check if game is won)
-  return tilesRevealed;
-}
-
-int Board::getRevealedBoardTile(int row, int col){    //getter for specific tile.
-  return revealed_board[row - 1][col - 1];
-}
-
 int Board::getMinesRemaining(){    //getter for mines remaining
   return minesRemaining;
 }
@@ -276,10 +268,6 @@ int Board::getCursorCol(){    //getter for cursors column
 
 int Board::getCursorRow(){    //getter for cursor's row
   return cursorRow;
-}
-
-bool Board::getLose(){    //getter if player loses
-  return lose;
 }
 
 void Board::drawTile(int row, int col){   //draws one tile
