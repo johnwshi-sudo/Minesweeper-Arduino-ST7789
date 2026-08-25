@@ -31,8 +31,14 @@
 
   //basic joystick movement + button pressing
     bool joystickButtonWasPressed = false;    //safeguard for when player holds down joystick button
-    bool buttonWasPressed = false;    //safeguard for player holding button
+    unsigned long lastJoystickButtonPressTime = 0;
+    const unsigned long JOYSTICK_DEBOUNCE_DELAY = 50;    //prevents joystick button bounce (undoing of a press in small time)
     bool joystickLeftWasTilted = false; bool joystickRightWasTilted = false; bool joystickUpWasTilted = false; bool joystickDownWasTilted = false; //safeguards for when player holds down joystick
+
+    bool buttonWasPressed = false;    //safeguard for player holding button
+    unsigned long lastButtonPressTime = 0;
+    const unsigned long DEBOUNCE_DELAY = 100;    //prevents button bounce (undoing of a press in small time)
+
 
   //holding joystick dduring playing will move cursor faster automatically (key repeat)
     unsigned long directionHeldSince = 0;   //tracks time since user held joystick
@@ -79,11 +85,20 @@ void loop() {
     joystickUpWasTilted = joystickUp; joystickDownWasTilted = joystickDown; joystickLeftWasTilted = joystickLeft; joystickRightWasTilted = joystickRight;
 
     bool buttonPressed = !digitalRead(BUTTON);
-    bool buttonJustPressed = buttonPressed && !buttonWasPressed;    //accounts for button held-down (registers as one press, not holding down)
+    bool buttonJustPressed = false;
+    if (buttonPressed && !buttonWasPressed && (millis() - lastButtonPressTime >= DEBOUNCE_DELAY)){      //accounts for button held-down (registers as one press, not holding down) + bouncing
+      buttonJustPressed = true;
+      lastButtonPressTime = millis();
+    };
     buttonWasPressed = buttonPressed;
 
     bool joystickButtonPressed = !digitalRead(JOYSTICK_BUTTON);   //pullup, therefore used !. true = pressed, false = not pressed
-    bool joystickButtonJustPressed = joystickButtonPressed && !joystickButtonWasPressed;
+    bool joystickButtonJustPressed = false;
+    if (joystickButtonPressed && !joystickButtonWasPressed && (millis() - lastJoystickButtonPressTime >= JOYSTICK_DEBOUNCE_DELAY)){     //similar logic to button above
+      joystickButtonJustPressed = true;
+      lastJoystickButtonPressTime = millis();
+
+    }
     joystickButtonWasPressed = joystickButtonPressed;
 
 switch(state){    //game pace
