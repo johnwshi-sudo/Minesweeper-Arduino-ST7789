@@ -2,7 +2,9 @@
 
 A fully playable Minesweeper adapted from a Java prototype, built from scratch in C++ for Arduino, with a 240x240 pixel ST7789, a joystick for revealing, and a button for flagging.
 
-![Demo](./media/Main_Demo.mp4)
+## Full Gameplay Demo
+
+https://github.com/user-attachments/assets/22e79dff-f1d2-4cee-a333-bb805dfaada8
 
 ## Features
 - Three difficulty levels (Easy 8x8, Medium 12x12, Hard 18x18)
@@ -27,8 +29,8 @@ A fully playable Minesweeper adapted from a Java prototype, built from scratch i
 ![Wiring](https://github.com/user-attachments/assets/94c6070d-d948-4437-83c2-b1f9d3a2e467)
 
 ## Screenshots & Gameplay
-* [Hard Mode Completion Video](./media/hard_completion.mp4) — (18x18 board, 55 mines)
-* [Easy Speedrun Video](./media/Easy_Speedrun.mp4) — (8x8 board, 10 mines)
+* [Hard Mode Completion Video] https://youtube.com/shorts/LQpjO-c8Tcs?feature=share — (18x18 board, 55 mines)
+* [Easy Speedrun Video] https://github.com/user-attachments/assets/f520c01f-3ca9-4409-84d4-60439b6ad3db — (8x8 board, 10 mines)
 
 | Mid-Game Screen | Win Screen | Loss Screen |
 | :---: | :---: | :---: |
